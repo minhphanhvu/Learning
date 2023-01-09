@@ -1,0 +1,16 @@
+<h1>Welcome#index</h1>
+<p>Find me in app/views/welcome/index.html.erb</p>
+
+<div>
+  <%= turbo_frame_tag :embedded do %>
+    <%= button_to "Create Embedded Link", embeddeds_path(
+      params: {
+        embedded: {
+          controller: :stats,
+          action: :index
+        }
+      }
+    ) %>
+  <% end %>
+  <%= turbo_frame_tag :stats, src: stats_url %>
+</div>
